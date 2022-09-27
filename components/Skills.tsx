@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Skill as SkillType } from "../typings";
-import { fetchSkills } from "../utils/fetchSkills";
 import Skill from "./Skill";
 
 type Props = {
