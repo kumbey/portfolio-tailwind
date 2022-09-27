@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { urlFor } from "../sanity";
+import { PageInfo } from "../typings";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
-const About = (props: Props) => {
+const About = ({ pageInfo }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -24,7 +28,7 @@ const About = (props: Props) => {
         }}
         whileInView={{ x: 0 }}
         viewport={{ once: true }}
-        src={"/images/lp_pic.jpg"}
+        src={urlFor(pageInfo?.profilePic).url()}
         className="-mb-20 md:mb-0 flex-shrink-0 w-64 h-64 rounded-lg object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[400px] xl:h-[500px]"
         alt=""
       />
@@ -34,13 +38,7 @@ const About = (props: Props) => {
           <span className="underline decoration-[#F7AB0A]/50">little</span>{" "}
           background
         </h4>
-        <p className="text-base">
-          I am a front-end developer with a passion to learn new technologies.
-          Currently working on the back office (dashboard) of the AirMath mobile
-          app which solves math problems using AI and tutors. Tech stacks we use
-          are React, Next.js, Material UI, TypeScript, Recoil, react-query,
-          react-hook-form, emotionCSS, grpc.
-        </p>
+        <p className="text-base">{pageInfo.backgroundInfo}</p>
       </div>
     </motion.div>
   );

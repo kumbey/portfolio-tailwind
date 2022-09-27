@@ -2,10 +2,12 @@ import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { fetchProjects } from "../utils/fetchProjects";
+import { Social } from "../typings";
 
-type Props = {};
+type Props = { socials: Social[] };
 
-function Header({}: Props) {
+function Header({ socials }: Props) {
   return (
     <header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto p-5 z-20 xl:items-center translate-x-100 ease-in duration-200">
       <motion.div
@@ -21,30 +23,15 @@ function Header({}: Props) {
         }}
         transition={{ duration: 1.5 }}
       >
-        <SocialIcon
-          url="https://www.facebook.com/kumurbek"
-          fgColor="gray"
-          target={"_blank"}
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.twitter.com/kumurbek"
-          fgColor="gray"
-          bgColor="transparent"
-          target={"_blank"}
-        />
-        <SocialIcon
-          url="https://github.com/kumbey"
-          fgColor="gray"
-          target={"_blank"}
-          bgColor="transparent"
-        />
-        <SocialIcon
-          url="https://www.linkedin.com/in/khumarbyek-beybit/"
-          fgColor="gray"
-          target={"_blank"}
-          bgColor="transparent"
-        />
+        {socials.map((social) => (
+          <SocialIcon
+            key={social._id}
+            url={social.url}
+            fgColor="gray"
+            target={"_blank"}
+            bgColor="transparent"
+          />
+        ))}
       </motion.div>
 
       <Link href={"#contact"}>
