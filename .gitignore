@@ -12,7 +12,7 @@
 /.next/
 /out/
 
-silver-rabbit/node_modules
+/silver-rabbit/node_modules
 
 # production
 /build
