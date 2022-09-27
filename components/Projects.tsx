@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { fetchProjects } from "../utils/fetchProjects";
 import { Project } from "../typings";
 import { urlFor } from "../sanity";
 

@@ -2,7 +2,6 @@ import React from "react";
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { fetchProjects } from "../utils/fetchProjects";
 import { Social } from "../typings";
 
 type Props = { socials: Social[] };
